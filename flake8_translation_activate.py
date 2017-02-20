@@ -3,7 +3,7 @@ import tokenize
 
 from sys import stdin
 
-__version__ = '1.0'
+__version__ = '1.0.1'
 
 TRANSLATION_ACTIVATE_ERROR_CODE = 'T006'
 TRANSLATION_ACTIVATE_ERROR_MESSAGE = 'call to django.translation.activate() found'
@@ -36,7 +36,7 @@ class TranslationActivateChecker(object):
                     'line': node.lineno,
                     'col': node.col_offset,
                 })
-            if isinstance(node, ast.ImportFrom) and node.module == 'django.translation' and 'activate' in [alias.name for alias in node.names] and node.lineno not in noqa:
+            if isinstance(node, ast.ImportFrom) and node.module == 'django.utils.translation' and 'activate' in [alias.name for alias in node.names] and node.lineno not in noqa:
                 errors.append({
                     'message': '{0} {1}'.format(TRANSLATION_ACTIVATE_ERROR_CODE, ACTIVATE_IMPORT_ERROR_MESSAGE),
                     'line': node.lineno,
