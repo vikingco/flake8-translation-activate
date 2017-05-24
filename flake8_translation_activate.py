@@ -3,7 +3,7 @@ import tokenize
 
 from sys import stdin
 
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 
 TRANSLATION_ACTIVATE_ERROR_CODE = 'T006'
 TRANSLATION_ACTIVATE_ERROR_MESSAGE = 'call to django.translation.activate() found'
